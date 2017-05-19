@@ -1,0 +1,19 @@
+@charset "utf-8";
+
+body,h1,h2,h3,h4,h5,h6,p,dl,dd,ul,ol,pre,form,input,textarea,th,td,select{margin:0;padding:0;}
+em{font-style:normal}
+li{list-style:none}
+a{text-decoration:none;}
+img{border:none; }
+table{border-collapse:collapse;}
+textarea{ resize:none;overflow:auto;}
+a:hover { text-decoration:underline; }
+
+
+/* #interface{background: url(../img/background.png) no-repeat;width: 100%;height: 100%;background-size: 100%;} */
+#haha{position:absolute;top: 100px;right:30%;}
+#interface{position: relative;}
+#interface h1{font-size: 50px;display: block;position: relative;left:20%;margin-left:-275px;width:900px;}
+#interface span{font-size: 25px;margin-right: 10px;cursor:default;}
+#interface input{width: 200px;height: 25px;border: none;background: none;font-size: 25px;cursor:default;}
+

@@ -1,0 +1,3 @@
+eclipse.preferences.version=1
+validator.Checked=WebRoot/highCharts,WebRoot/assets
+validator.Unchecked=WebRoot/assets/js/flot/jquery.flot.min.js

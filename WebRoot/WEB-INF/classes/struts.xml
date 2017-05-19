@@ -1,0 +1,72 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 2.1//EN" "http://struts.apache.org/dtds/struts-2.1.dtd">
+<struts>
+	<package name="library" extends="struts-default" namespace="/">
+	
+		<!-- 拦截非登陆请求 -->
+		<interceptors>
+			<interceptor name="privilegeInterceptor" class="com.library.tools.LoginFilter"/>
+		</interceptors>
+	
+		<global-results>
+			<result name="login">/WEB-INF/login.jsp</result>
+		</global-results>
+				
+        <!-- 用户登录 -->
+		<action name="user*" class="com.library.action.LoginAction"
+			method="{1}">
+			
+			<result name="success">/WEB-INF/index2.jsp</result>
+			<result name="file">/WEB-INF/login.jsp</result>
+		</action>
+		
+		<!-- 部门查询 -->
+		<action name="part*" class="com.library.action.partAction"
+			method="{1}">
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="part">/WEB-INF/index.jsp</result>
+		</action>
+		<!-- 类型查询 -->
+		<action name="type*" class="com.library.action.typeAction"
+			method="{1}">
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+			
+			<result name="type">/WEB-INF/type.jsp</result>
+		</action>
+		
+		<!-- 区域查询 -->
+		<action name="area*" class="com.library.action.areaAction"
+			method="{1}">
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="area">/WEB-INF/area.jsp</result>
+		</action>
+		
+		<!-- 区域查询 -->
+		<action name="com*" class="com.library.action.comprehensiveAction"
+			method="{1}">
+			<interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+			<result name="com">/WEB-INF/comprehensive.jsp</result>
+		</action>
+		
+
+		<!-- 基本跳转 -->
+		<action name="Base*" class="com.library.action.BaseAction" method="{1}">
+		    <interceptor-ref name="privilegeInterceptor"/>
+			<interceptor-ref name="defaultStack"/>
+		
+			<result name="index2">/WEB-INF/index2.jsp</result>
+			<result name="index">/WEB-INF/index.jsp</result>
+			<result name="area">/WEB-INF/area.jsp</result>
+			<result name="comprehensive">/WEB-INF/comprehensive.jsp</result>
+			<result name="custtom">/WEB-INF/custom.jsp</result>
+			<result name="reader">/WEB-INF/reader.jsp</result>
+			<result name="report">/WEB-INF/report.jsp</result>
+			<result name="type">/WEB-INF/type.jsp</result>
+			<result name="top">/WEB-INF/top.jsp</result>
+		</action>
+	</package>
+</struts>    
